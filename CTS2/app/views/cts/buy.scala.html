@@ -1,0 +1,21 @@
+@(tool:Tool)
+
+@main("tools"){
+<h1 align="center">Community Tool Sharing</h1>
+<body style="background-color:lightyellow"  ><br><br>
+<form action="@routes.Website.payeeinfo()" method="get">
+    <center>
+    <label style="font-size:120%"><b>  Tool ID : </b></label>           @tool.name<br><br>
+    <label style="font-size:120%" ><b> Owner of the Tool :</b> </label> @tool.owner<br><br>
+    <label style="font-size:120%"><b>  Description : </b> </label>      @tool.description<br><br>
+    <label style="font-size:120%"><b>  Tool Category : </b> </label>    @tool.category<br><br>
+    <br><br>
+    <br><br>
+    <button style="font-size:90%">Borrow</button>
+        </center>
+</form>
+
+
+
+</body>
+}

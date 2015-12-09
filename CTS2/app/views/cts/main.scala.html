@@ -1,0 +1,77 @@
+@(title: String)(content: Html)
+
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>CTS Project</title>
+    <style>
+
+        html, body{
+        margin: 0;
+        padding: 0;
+        font-family: Rockwell, Consolas, "Courier New", Courier, monospace;
+
+        background-image: url("pic1.jpg");
+
+        }
+
+
+        h1 {
+        margin: 0;
+        background: D8BFD8;;
+        padding: 20px 45px;
+        color: #fff;
+        text-shadow: 1px 1px 1px rgba(0,0,0,.3);
+        border-bottom: 1px solid #9F5805;
+        font-size: 28px;
+        }
+
+        input[type=submit]
+        {
+        margin-top: 10px;
+        min-width: 150px;
+        height: 28px;
+        text-align: center;
+        padding: 5px 5px 5px 5px;
+        }
+
+    </style>
+
+
+
+    <link rel="stylesheet" media="screen" href="@routes.Assets.versioned("stylesheets/main.css")">
+    <link rel="shortcut icon" type="image/png" href="@routes.Assets.versioned("images/favicon.png")">
+    <link rel="stylesheet" type="text/css" href="@routes.Assets.versioned("stylesheets/bootstrap.min.css")">
+    <script src="@routes.Assets.versioned("javascripts/jquery-1.11.3.min.js")"></script>
+    <script src="@routes.Assets.versioned("javascripts/bootstrap.min.js")"></script>
+    <script src="@routes.Assets.versioned("javascripts/hello.js")" type="text/javascript"></script>
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+</head>
+
+<body>
+<h1 style="color:green"><center>Community Tool Sharing</center></h1>
+<br>
+<p><b><center>This is a web application to share tools between people from all the boroughs</center> </b></p>
+<br><br>
+<div class="center">
+
+    <center>
+
+        <a href="@routes.Website.registerUI()" class="btn"> Sign Up</a>
+    </center>
+<br>
+    <center>
+
+        <a href="@routes.Website.loginUI()" class="btn"> Login</a>
+    </center>
+
+
+</div>
+
+<br><br>
+
+
+
+@content
+</body>

@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        html, body {
+    background:lightyellow;
+        }
+    </style>
+</head>
+<body>
+<h2><center><b>Registration form</b></center></h2>
+
+   <form action="@routes.Website.register()" method ="post">
+       <center>
+    <br>
+        <div class="form-group" style="center">
+            <label for="username" class="control-label">Usename</label>
+            <div class="control-label">
+
+                <input type="text" id="username" name="username">
+            </div>
+        </div>
+
+        <br>
+
+        <div class="form-group">
+            <label for="password" class="control-label">Password</label>
+            <div class="control-label">
+
+                <input type="password" id="password" name="password">
+            </div>
+        </div>
+
+        <br>
+
+        <div class="form-group">
+            <label for="firstname" class="control-label">First Name</label>
+            <div class="control-label">
+
+                <input type="text" id="firstName" name="firstname">
+            </div>
+        </div>
+
+        <br>
+
+        <div class="form-group">
+            <label for="lastname" class="control-label">Last Name</label>
+            <div class="control-label">
+
+                <input type="text" id="lastName" name="lastname">
+            </div>
+        </div>
+
+        <br>
+
+        <div class="form-group">
+            <label for="email" class="control-label">Email</label>
+            <div class="control-label">
+
+                <input type="email" id="email" name="email">
+            </div>
+        </div>
+
+
+        <br>
+
+        <div class="form-group">
+            <label for="address" class="control-label">Address</label>
+            <div class="control-label">
+                <input type="text" id="address" name="address">
+            </div>
+        </div>
+
+        <br>
+
+        <div class="form-group">
+            <label for="phone" class="control-label">Phone Number</label>
+            <div class="control-label">
+                <input type="tel" id="phone" name="phone">
+            </div>
+        </div>
+
+        <br>
+
+        <button type="submit" class="btn">Submit</button>
+
+
+    </center>
+   </form>
+</body>
+</html>

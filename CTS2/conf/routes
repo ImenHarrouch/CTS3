@@ -1,0 +1,30 @@
+# Routes
+# This file defines all application routes (Higher priority routes first)
+# ~~~~
+
+
+# Home page
+#GET /                                        controllers.Application.index()
+
+GET            /                              controllers.Website.welcome()
+GET            /tools                              controllers.Website.index()
+GET            /registerUI                      controllers.Website.registerUI()
+POST           /register                       controllers.Website.register()
+GET           /loginUI                          controllers.Website.loginUI()
+POST           /login                          controllers.Website.login()
+
+POST    /tools                        controllers.Website.create()
+GET     /tools/:id                    controllers.Website.show(id:Long)
+
+#POST     /create                     controllers.Website.create()
+GET       /tools1                     controllers.Website.gtools()
+POST       /tools1                     controllers.Website.tools()
+GET       /search                      controllers.Search.search()
+GET       /buy/:id                      controllers.Website.buy(id:Long)
+GET       /info                      controllers.Website.payeeinfo()
+POST       /confirmation           controllers.Website.confirmation()
+#POST     /tools/:id                  controllers.Website.show(id:Long)
+
+
+# Map static resources from the /public folder to the /assets URL path
+GET     /assets/*file               controllers.Assets.versioned(path="/public", file: Asset)

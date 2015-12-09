@@ -1,0 +1,52 @@
+@(tools: List[Tool])
+
+@main("Tools") {
+
+<h3 align="center">Tool Description</h3>
+
+<body style="background-color:lightyellow">
+<form action="@routes.Website.create()" method="post">
+<center>
+    <br>
+    <div class="form-group" style="center">
+        <label for="name" class="control-label">Tool Name</label>
+        <div class="control-label">
+
+            <input type="text" id="name" name="name">
+        </div>
+    </div>
+
+    <br>
+    <div class="form-group" style="center">
+        <label for="owner" class="control-label">Owner</label>
+        <div class="control-label">
+
+            <input type="text" id="owner" name="owner">
+        </div>
+    </div>
+    <br>
+    <div class="form-group" style="center">
+        <label for="description" class="control-label">Description</label>
+        <div class="control-label">
+
+            <input type="text" id="description" name="description">
+        </div>
+    </div>
+
+    <br>
+
+    <label for="category">Category</label> <br>
+<select name="category" id="category">
+    <option value="hand tools">Hand Tools</option>
+    <option value="power tools">Power Tools</option>
+</select><!--<input type = "text" name="toolname" style="font-size:90%" >-->
+    <br><br>
+
+    <br><br>
+    <button>Upload new tool</button>
+    </center>
+
+</form>
+</body>
+
+}
