@@ -16,14 +16,19 @@ POST           /login                          controllers.Website.login()
 POST    /tools                        controllers.Website.create()
 GET     /tools/:id                    controllers.Website.show(id:Long)
 
-#POST     /create                     controllers.Website.create()
+
 GET       /tools1                     controllers.Website.gtools()
 POST       /tools1                     controllers.Website.tools()
-GET       /search                      controllers.Search.search()
+POST       /search                      controllers.Search.search()
 GET       /buy/:id                      controllers.Website.buy(id:Long)
+GET       /comments/:id                      controllers.Search.viewcomment(id:Long)
+
 GET       /info                      controllers.Website.payeeinfo()
+GET       /borrower                      controllers.Website.borrower()
+
 POST       /confirmation           controllers.Website.confirmation()
-#POST     /tools/:id                  controllers.Website.show(id:Long)
+GET       /logout                      controllers.Website.welcome()
+POST       /comments/:id                      controllers.Website.show(id:Long)
 
 
 # Map static resources from the /public folder to the /assets URL path

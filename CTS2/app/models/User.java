@@ -22,17 +22,25 @@ public class User extends Model {
     @Column(unique=true)
     public String username;
 
+    @Constraints.Required
     public String password_hash;
 
 
+    @Constraints.Required
     public String firstname;
 
+
+    @Constraints.Required
     public String lastname;
 
+
+    @Constraints.Required
     public String address;
 
+    @Constraints.Required
     public String email;
 
+    @Constraints.Required
     public String phone;
 
 
@@ -41,10 +49,10 @@ public class User extends Model {
 
     // NOT FOR PRODUCTION - must ensure this is a valid user first. I have not done that.
 
-    public boolean authenticate(User user, String password)
+    public boolean authenticate(User u, String password)
     {
-        if(user!=null){
-        return BCrypt.checkpw(password, user.password_hash);
+        if(u != null){
+        return BCrypt.checkpw(password, u.password_hash);
     }
     else {
             return false;
@@ -52,8 +60,8 @@ public class User extends Model {
     }
 
 
-    public static User createUser(String username, String password){
-
+    public static User createUser(String username, String password, String firstname, String lastname, String email, String phone, String address)
+    {
 
              // requirements for username and password
              if(password==null || username==null && password.length()<8)
@@ -70,6 +78,11 @@ public class User extends Model {
 
              user.username = username;
              user.password_hash = passwordHash;
+           user.firstname = firstname;
+        user.lastname = lastname;
+        user.email = email;
+        user.phone = phone;
+        user.address = address;
 
 
              return user;

@@ -1,7 +1,6 @@
 package controllers;
 
 import models.Tool;
-import models.ToolCategory;
 import play.data.DynamicForm;
 import play.mvc.Controller;
 import play.mvc.Result;
@@ -18,13 +17,26 @@ public class Search extends Controller{
         String search = form.data().get("search");
         String cat = form.data().get("categories");
 
-        if(search.trim().length() == 0 && cat.equals("")){
-            List<ToolCategory> toolcat = ToolCategory.find.all();
-            List<Tool> tool = Tool.find.where().findList();
-            return ok(String.valueOf(routes.Website.tools()));
+        //  if(search.trim().length() == 0 && cat.equals("")){
+        //  List<ToolCategory> toolcat = ToolCategory.find.all();
+        List<Tool> tool = Tool.find.where().eq("category",cat).findList();
+        //   return redirect(routes.Website.tools());
+        return ok(views.html.cts.tools.render(tool));
 
 
+        //    }
+        //   return ok();
+    }
+
+    public Result viewcomment(Long id){
+        Tool tool = Tool.find.where().idEq(id).findUnique();
+        if(tool==null){
+            flash("No comments");
+            return ok(views.html.cts.buy.render(tool));
         }
-        return ok();
+        else
+            return ok(views.html.cts.buy.render(tool));
+
+
     }
 }

@@ -2,48 +2,59 @@
 
 @main("Tools") {
 
-<h3 align="center">Tool Description</h3>
+<h2 align="center" style="color:green">Tool Description</h2>
 
 <body style="background-color:lightyellow">
 <form action="@routes.Website.create()" method="post">
-<center>
-    <br>
-    <div class="form-group" style="center">
-        <label for="name" class="control-label">Tool Name</label>
-        <div class="control-label">
+    <center>
+        <br>
+        <div class="form-group" style="center">
+            <label for="name" class="control-label"><b>Tool Name</b></label>
+            <div class="control-label">
 
-            <input type="text" id="name" name="name">
+                <input type="text" id="name" name="name">
+            </div>
         </div>
-    </div>
 
-    <br>
-    <div class="form-group" style="center">
-        <label for="owner" class="control-label">Owner</label>
-        <div class="control-label">
+        <br>
+        <div class="form-group" style="center">
+            <label for="owner" class="control-label"><b>Owner</b></label>
+            <div class="control-label">
 
-            <input type="text" id="owner" name="owner">
+                <input type="text" id="owner" name="owner">
+            </div>
         </div>
-    </div>
-    <br>
-    <div class="form-group" style="center">
-        <label for="description" class="control-label">Description</label>
-        <div class="control-label">
+        <br>
+        <div class="form-group" style="center">
+            <label for="description" class="control-label"><b>Description</b></label>
+            <div class="control-label">
 
-            <input type="text" id="description" name="description">
+                <textarea type="text" id="description" name="description" rows="2" cols="20"></textarea>
+            </div>
         </div>
-    </div>
 
-    <br>
+        <br>
 
-    <label for="category">Category</label> <br>
-<select name="category" id="category">
-    <option value="hand tools">Hand Tools</option>
-    <option value="power tools">Power Tools</option>
-</select><!--<input type = "text" name="toolname" style="font-size:90%" >-->
-    <br><br>
+        <label for="category"><b>Category</b></label> <br>
+        <select name="category" id="category">
+            <option value="select" selected="selected">Select Category</option>
+            <option value="hand tools">Hand Tools</option>
+            <option value="power tools">Power Tools</option>
+        </select><!--<input type = "text" name="toolname" style="font-size:90%" >-->
+        <br><br><br>
+        <div class="form-group" style="center">
+            <label for="owner" class="control-label"><b>Comment </b></label>
+            <div class="control-label">
 
-    <br><br>
-    <button>Upload new tool</button>
+                <textarea name="comment" rows="5" cols="25"></textarea>
+            </div>
+        </div>
+
+        <br>
+
+        <br><br>
+
+        <button>Upload new tool</button>
     </center>
 
 </form>

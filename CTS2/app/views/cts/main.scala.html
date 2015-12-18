@@ -4,19 +4,14 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>CTS Project</title>
+    <title>Community Tool Sharing</title>
     <style>
-
         html, body{
         margin: 0;
         padding: 0;
         font-family: Rockwell, Consolas, "Courier New", Courier, monospace;
 
-        background-image: url("pic1.jpg");
-
         }
-
-
         h1 {
         margin: 0;
         background: D8BFD8;;
@@ -24,18 +19,16 @@
         color: #fff;
         text-shadow: 1px 1px 1px rgba(0,0,0,.3);
         border-bottom: 1px solid #9F5805;
-        font-size: 28px;
+        font-size: 38px;
         }
-
         input[type=submit]
         {
         margin-top: 10px;
         min-width: 150px;
-        height: 28px;
+        height: 58px;
         text-align: center;
         padding: 5px 5px 5px 5px;
         }
-
     </style>
 
 
@@ -49,21 +42,22 @@
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
 </head>
 
-<body>
-<h1 style="color:green"><center>Community Tool Sharing</center></h1>
+<img src="@routes.Assets.versioned("images/pic3.png")" style="width:1374px;height:308px" align="center">
+<body style="background-color: lightyellow">
+<h1 style="color:green"><center> ToolShare</center></h1>
+
+<h3 style="color:green;font-size:20px" ><center>This is a web application to share tools between people in a community from all the boroughs</center></h3>
 <br>
-<p><b><center>This is a web application to share tools between people from all the boroughs</center> </b></p>
-<br><br>
 <div class="center">
 
     <center>
 
-        <a href="@routes.Website.registerUI()" class="btn"> Sign Up</a>
+        <a href="@routes.Website.registerUI()" class="btn" style="font-size:20px"><b> Sign Up </b></a>
     </center>
-<br>
+    <br>
     <center>
 
-        <a href="@routes.Website.loginUI()" class="btn"> Login</a>
+        <a href="@routes.Website.loginUI()" class="btn" style="font-size:20px"><b> Login </b></a>
     </center>
 
 
@@ -75,3 +69,4 @@
 
 @content
 </body>
+</html>

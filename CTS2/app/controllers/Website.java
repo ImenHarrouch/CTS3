@@ -36,41 +36,39 @@ public class Website extends Controller {
     }*/
 
     //post
-    public Result register(){
+    public Result register() {
 
         DynamicForm userForm = form().bindFromRequest();
         String username = userForm.data().get("username");
         String password = userForm.data().get("password");
-       /* String firstname = userForm.data().get("firstname");
+        String firstname = userForm.data().get("firstname");
         String lastname = userForm.data().get("lastname");
         String email = userForm.data().get("email");
         String phone = userForm.data().get("phone");
-        String address = userForm.data().get("address");*/
+        String address = userForm.data().get("address");
 
 
-        User user = User.createUser(username,password);
-
-        if(user == null) {
+        User user = User.createUser(username, password, firstname, lastname, email, phone, address);
+        if (user == null) {
             flash("error", "Invalid user");
             return redirect(routes.Website.welcome());
         }
-
-
-        /*user.username = username;
-        user.password_hash = password;
-        user.firstname = firstname;
+            /*user.username = username;
+            user.password_hash = password;*/
+       /* user.firstname = firstname;
         user.lastname = lastname;
         user.email = email;
         user.phone = phone;
         user.address = address;*/
 
-        user.save();
-        flash("success", "Welcome new user " + user.username);
-        session("user_id", user.id.toString());
+            user.save();
+            flash("success", "Welcome new user " + user.username);
+            session("user_id", user.id.toString());
 
 
-        return redirect(routes.Website.index());
-    }
+            return redirect(routes.Website.index());
+        }
+
 
     //get
     public Result registerUI()  {
@@ -96,7 +94,6 @@ public class Website extends Controller {
         User user = User.find.where().eq("username", username).findUnique();
 
         if (user != null && user.authenticate(user, password)) {
-            session("user_id", user.id.toString());
             flash("success", "Welcome " + user.username);
         } else {
             flash("error", "Invalid login. Check your credentials information please.");
@@ -107,21 +104,21 @@ public class Website extends Controller {
 
 
     public Result logout() {
-         session().remove("user_id");
-         return redirect(routes.Website.welcome());
-         }
+        session().remove("user_id");
+        return redirect(routes.Website.welcome());
+    }
 
-
-    @Security.Authenticated(UserAuth.class)
+    //@Security.Authenticated(UserAuth.class)
     public Result create()
     {
         //Tool tool = Form.form(Tool.class).bindFromRequest().get();
+        flash ("success", "Saved new tool" );
         DynamicForm userForm = form().bindFromRequest();
         String name = userForm.data().get("name");
         String owner = userForm.data().get("owner");
         String description = userForm.data().get("description");
         String category = userForm.data().get("category");
-
+        String comment = userForm.data().get("comment");
         Tool tool = new Tool();
 
 
@@ -129,10 +126,12 @@ public class Website extends Controller {
         tool.owner = owner;
         tool.description = description;
         tool.category = category;
-
+        tool.comment = comment;
         tool.save();
         flash ("success", "Saved new tool" + tool.name);
+        //   return ok(views.html.cts.tools.render(tool));
         return redirect(routes.Website.tools());
+        //  return ok();
     }
 
 
@@ -148,9 +147,9 @@ public class Website extends Controller {
 
     public Result tools(){
 
-        //  List<Tool> tool = Tool.find.all();
-        return redirect(routes.Website.tools());
-        //  return ok(views.html.cts.tools.render(tool));
+        List<Tool> tool = Tool.find.all();
+        //return redirect(routes.Website.tools());
+        return ok(views.html.cts.tools.render(tool));
         //   return ok("buy page");
     }
 
@@ -167,9 +166,39 @@ public class Website extends Controller {
         return ok(views.html.cts.payee_info.render());
     }
 
-    public Result confirmation() {
+    public Result confirmation()
+    {
         return ok(views.html.cts.confirmation.render());
     }
+
+    public Result borrower(){
+        DynamicForm bform = form().bindFromRequest();
+        String fname = bform.data().get("firstname");
+        String lname =  bform.data().get("lastname");
+        String add = bform.data().get("address");
+        String city =  bform.data().get("city");
+        String state = bform.data().get("state");
+        String zip =  bform.data().get("zip");
+        String email = bform.data().get("email");
+        String phone =  bform.data().get("phone");
+
+        Borrower bor = new Borrower();
+        bor.firstname=fname;
+        bor.lastname=lname;
+        bor.address=add;
+        bor.city=city;
+        bor.state=state;
+        bor.zip=zip;
+        bor.phone=phone;
+
+        bor.save();
+
+        return ok(views.html.cts.confirmation.render());
+        //    return redirect(routes.Website.confirmation());
+
+    }
+
+
 
 
     public Result show(Long id) {

@@ -3,6 +3,19 @@
 
 # --- !Ups
 
+create table borrowerdetails (
+  id                        bigserial not null,
+  firstname                 varchar(255),
+  lastname                  varchar(255),
+  address                   varchar(255),
+  city                      varchar(255),
+  state                     varchar(255),
+  zip                       varchar(255),
+  email                     varchar(255),
+  phone                     varchar(255),
+  constraint pk_borrowerdetails primary key (id))
+;
+
 create table tools (
   id                        bigserial not null,
   name                      varchar(255),
@@ -10,7 +23,6 @@ create table tools (
   owner                     varchar(255),
   category                  varchar(255),
   comment                   varchar(255),
-  toollist                  varchar(255),
   constraint pk_tools primary key (id))
 ;
 
@@ -37,6 +49,8 @@ create table users (
 
 
 # --- !Downs
+
+drop table if exists borrowerdetails cascade;
 
 drop table if exists tools cascade;
 
