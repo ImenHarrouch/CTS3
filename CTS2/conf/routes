@@ -7,28 +7,28 @@
 #GET /                                        controllers.Application.index()
 
 GET            /                              controllers.Website.welcome()
-GET            /tools                              controllers.Website.index()
-GET            /registerUI                      controllers.Website.registerUI()
-POST           /register                       controllers.Website.register()
-GET           /loginUI                          controllers.Website.loginUI()
-POST           /login                          controllers.Website.login()
+GET            /tools                         controllers.Website.index()
+GET            /registerUI                    controllers.Website.registerUI()
+POST           /register                      controllers.Website.register()
+GET            /loginUI                       controllers.Website.loginUI()
+POST           /login                         controllers.Website.login()
 
-POST    /tools                        controllers.Website.create()
-GET     /tools/:id                    controllers.Website.show(id:Long)
+POST           /tools                         controllers.Website.create()
+GET            /tools/:id                     controllers.Website.show(id:Long)
 
 
-GET       /tools1                     controllers.Website.gtools()
-POST       /tools1                     controllers.Website.tools()
-POST       /search                      controllers.Search.search()
-GET       /buy/:id                      controllers.Website.buy(id:Long)
-GET       /comments/:id                      controllers.Search.viewcomment(id:Long)
+GET           /tools1                         controllers.Website.gtools()
+POST          /tools1                         controllers.Website.tools()
+POST          /search                         controllers.Search.search()
+GET           /buy/:id                        controllers.Website.buy(id:Long)
+GET           /comments/:id                   controllers.Search.viewcomment(id:Long)
 
-GET       /info                      controllers.Website.payeeinfo()
-GET       /borrower                      controllers.Website.borrower()
+GET           /info                           controllers.Website.payeeinfo()
+POST          /borrower                       controllers.Website.borrower()
 
-POST       /confirmation           controllers.Website.confirmation()
-GET       /logout                      controllers.Website.welcome()
-POST       /comments/:id                      controllers.Website.show(id:Long)
+POST          /confirmation                   controllers.Website.confirmation()
+GET           /logout                         controllers.Website.welcome()
+POST          /comments/:id                   controllers.Website.show(id:Long)
 
 
 # Map static resources from the /public folder to the /assets URL path

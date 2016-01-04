@@ -49,14 +49,14 @@ public class User extends Model {
 
     // NOT FOR PRODUCTION - must ensure this is a valid user first. I have not done that.
 
-    public boolean authenticate(User u, String password)
+    public boolean authenticate(String password)
     {
-        if(u != null){
-        return BCrypt.checkpw(password, u.password_hash);
-    }
+        //if(u != null){
+        return BCrypt.checkpw(password, this.password_hash);
+    /*}
     else {
             return false;
-        }
+        }*/
     }
 
 

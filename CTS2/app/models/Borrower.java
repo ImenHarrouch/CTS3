@@ -28,8 +28,8 @@ public class Borrower extends Model {
     @Constraints.Required
     public String city;
 
-    @Constraints.Required
-    public String state;
+    /*@Constraints.Required
+    public String state;*/
 
     @Constraints.Required
     public String zip;

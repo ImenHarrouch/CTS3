@@ -93,7 +93,7 @@ public class Website extends Controller {
 
         User user = User.find.where().eq("username", username).findUnique();
 
-        if (user != null && user.authenticate(user, password)) {
+        if (user != null && user.authenticate(password)) {
             flash("success", "Welcome " + user.username);
         } else {
             flash("error", "Invalid login. Check your credentials information please.");
@@ -177,7 +177,7 @@ public class Website extends Controller {
         String lname =  bform.data().get("lastname");
         String add = bform.data().get("address");
         String city =  bform.data().get("city");
-        String state = bform.data().get("state");
+        //String state = bform.data().get("state");
         String zip =  bform.data().get("zip");
         String email = bform.data().get("email");
         String phone =  bform.data().get("phone");
@@ -187,8 +187,9 @@ public class Website extends Controller {
         bor.lastname=lname;
         bor.address=add;
         bor.city=city;
-        bor.state=state;
+        //bor.state=state;
         bor.zip=zip;
+        bor.email=email;
         bor.phone=phone;
 
         bor.save();

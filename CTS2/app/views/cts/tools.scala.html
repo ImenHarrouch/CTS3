@@ -4,6 +4,7 @@
 
 <h1 align="center"  style="color:green">ToolShare</h1>
 <body style="background-color: lightyellow">
+<center><br>
 <h3><a href="@routes.Website.index()">Click here to upload a new tool</a></h3>
 <h3><a href="@routes.Website.welcome()">Logout</a></h3>
 
@@ -26,24 +27,23 @@
 
     </select>
 
-    <button>Search</button>
+    <button><b>Search</b></button>
 
+            </form>
+    <br>
 
+            @if(tool.isEmpty()) {
+            <h3 style="color:blue">Sorry! No available tools</h3>
+            }else{
+            <h3 style="color:blue">List of available tools</h3>
+            <ul>
+                @for(t <- tool){
 
+                <li><a href="@routes.Website.buy(t.id)">@t.name</a></li>
 
-</form>
-
-@if(tool.isEmpty()) {
-<h3>No tools available</h3>
-}else{
-<h3>List of tools available</h3>
-<ul>
-    @for(t <- tool){
-
-    <li><a href="@routes.Website.buy(t.id)">@t.name</a></li>
-
-    }
-</ul>
-}
+                }
+            </ul>
+            }
+                </center>
 </body>
 }
